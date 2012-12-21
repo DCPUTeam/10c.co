@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderID="title" runat="server"><umbraco:Item field="pageName" runat="server" /> - </asp:Content>
+
+<asp:Content ContentPlaceHolderID="content" runat="server">
+    <div class="feature">
+        <div>
+            <h3><umbraco:Item field="pageName" runat="server" /></h3>
+            <div class="subtitle"><umbraco:Item field="title" runat="server" /></div>
+            <div class="subtitle"><a href="mailto:<umbraco:Item field="emailAddress" runat="server" />"><umbraco:Item field="emailAddress" runat="server" /></a></div>
+        </div>
+    </div>
+    <div class="article">
+        <umbraco:Item field="bodyText" runat="server" />
+        <hr />
+        <umbraco:Macro alias="FindAuthorContributions" runat="server" />
+    </div>
+</asp:Content>

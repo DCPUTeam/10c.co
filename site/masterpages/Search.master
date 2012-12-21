@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" MasterPageFile="Master.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderID="content" runat="server">
+    <div class="feature">
+        <div>
+            <h3>Search Results</h3>
+            <div class="subtitle"><umbraco:Macro runat="server" language="cshtml">@{
+            string query = Request.QueryString["q"];
+            if (string.IsNullOrEmpty(query))
+            {
+                return;
+            }
+            query = query.ToLower().Trim();
+            string _query = "";
+            // Normalize query
+            for (int i = 0; i < query.Length; i++)
+            {
+                if (char.IsLetterOrDigit(query[i]) || query[i] == ' ')
+                {
+                    _query += query[i];
+                }
+            }
+            query = _query;
+            }"@query"</umbraco:Macro></div>
+        </div>
+    </div>
+    <div class="article">
+        <umbraco:Macro Alias="Search" runat="server" />
+    </div>
+</asp:Content>

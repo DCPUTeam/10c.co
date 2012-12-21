@@ -1,0 +1,43 @@
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+.normal {
+text-decoration: none;
+}
+
+h4 {
+font-size: 18pt;
+}
+
+blockquote {
+background-color: #FFE97F;
+}
+
+.right {
+float: right;
+}
+
+.left {
+float:left;
+}
+
+.question {
+font-weight: bold;
+}
+
+.answer {
+font-weight: normal;
+}
+
+.inline-code {
+border-radius: 3px; border: 1px #999 solid; background-color: #eee; padding: 2px; font-family: Courier New; margin: 2px;
+}
+
+.spoiler {
+background-color: #ccc;
+}
+
+.code {
+border-radius: 3px; border: 1px #999 solid; background-color: #eee; padding: 2px; font-family: Courier New; margin: 2px; whitespace: no-wrap; overflow: auto;
+}
+

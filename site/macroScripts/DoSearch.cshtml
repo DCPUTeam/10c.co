@@ -1,0 +1,78 @@
+﻿@using System.Dynamic;
+@using System.Text.RegularExpressions;
+
+@{
+    string[] contentTypes = new[] { "Article", "Page" };
+
+    string query = Request.QueryString["q"];
+    if (string.IsNullOrEmpty(query))
+    {
+        <p>Invalid search query!</p>
+        return;
+    }
+    query = query.ToLower().Trim();
+    string _query = "";
+    // Normalize query
+    for (int i = 0; i < query.Length; i++)
+    {
+        if (char.IsLetterOrDigit(query[i]) || query[i] == ' ')
+        {
+            _query += query[i];
+        }
+    }
+    query = _query;
+
+    var root = Model.AncestorOrSelf(1);
+}
+
+@foreach (var contentType in contentTypes)
+{
+    foreach (var item in root.Descendants(contentType).Where("!umbracoNaviHide"))
+    {
+        try
+        {
+            var content = Library.StripHtml(item.bodyText).ToString();
+            if (item.Name.ToLower().Contains(query) || content.ToLower().Contains(query))
+            {
+                <h4><a href="@item.Url">@item.Name</a></h4>
+                const int contextLength = 200;
+                int index = content.ToLower().IndexOf(query);
+                index -= (contextLength / 2);
+                int length = contextLength;
+                bool leadingDots = false, trailingDots = false;
+                if (index < 0)
+                {
+                    index = 0;
+                }
+                else
+                {
+                    leadingDots = true;
+                }
+                if (index + length > content.Length)
+                {
+                    length = content.Length - index;
+                }
+                else
+                {
+                    trailingDots = true;
+                }
+                string context = content.Substring(index, length).Trim();
+                if (leadingDots)
+                {
+                    context = "..." + context;
+                }
+                if (trailingDots)
+                {
+                    context += "...";
+                }
+                index = context.ToLower().IndexOf(query);
+                if (index != -1)
+                {
+                    context = context.Insert(index + query.Length, "</strong>").Insert(index, "<strong>");
+                }
+                <p>@Html.Raw(context) <a href="@item.Url">Read More »</a></p>
+            }
+        }
+        catch { }
+    }
+}

@@ -1,0 +1,400 @@
+html, body {
+    min-height: 100%;
+    height: 100%;
+    background: url('/images/background.png') 0 0 transparent scroll;
+    margin: 0;
+    padding: 0;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 1px 3px #000;
+}
+
+h3 {
+    font-size: 24pt;
+    padding-top: 5px;
+}
+
+h3 a {
+    color: #000;
+    text-decoration: none;
+    text-shadow: 0 1px 3px #555;
+}
+
+h3 a:hover {
+    text-decoration: underline;
+}
+
+a {
+    color: #2E66C1;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+#header {
+    position: absolute;
+    background: url('/images/top-bar.png') 0 0 transparent scroll;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    z-index: 1000;
+}
+
+#header h1 {
+    display: inline;
+    margin-left: 25px;
+}
+
+#header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#header h1 a:hover {
+    text-decoration: underline;
+}
+
+#header h2 {
+    display: inline;
+    font-size: 16pt;
+    color: #ccc;
+    margin-left: 5px;
+    position: relative;
+}
+
+#navigation {
+    position: absolute;
+    right: 250px;
+    top: 3px;
+}
+
+#navigation > ul {
+    margin: 0;
+    padding: 0;
+}
+
+#navigation > ul > li {
+    display: inline;
+    margin: 0 10px 0 10px;
+}
+
+#navigation a {
+    color: #fff;
+    line-height: 32px;
+    font-size: 16pt;
+    font-weight: bolder;
+    text-shadow: 0 1px 3px #000;
+    text-decoration: none;
+}
+
+#navigation a:hover {
+    text-decoration: underline;
+}
+
+#search {
+    position: absolute;
+    right: 25px;
+    width: 200px;
+    height: 23px;
+    top: 4px;
+    padding: 5px;
+}
+
+#search .text {
+    width: 200px;
+}
+
+#search .submit {
+    display: none;
+}
+
+#content {
+    padding-bottom: 50px;
+    padding-top: 40px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 28px;
+    height: 25px;
+    width: 100%;
+}
+
+#footer > div {
+    margin: 0 auto;
+    width: 900px;
+    border-top: 1px solid #333;
+    color: #aaa;
+    text-align: center;
+}
+
+#footer a {
+    color: #aaa;
+}
+
+.feature {
+    background: url('/images/feature.png') 0 0 scroll repeat;
+    min-height: 100px;
+}
+
+.feature > div {
+    margin: 0 auto;
+    width: 900px;
+    position: relative;
+    z-index: 0;
+}
+
+iframe.embed {
+    margin-top: 8px;
+    margin-left: 24px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 2px 2px #000;
+}
+
+.feature a.big {
+    color: #fff;
+    font-size: 14pt;
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    text-shadow: 0 1px 3px #000;
+}
+
+.feature h3, .feature h3 a {
+    text-shadow: 0 1px 3px #000;
+    color: #fff;
+}
+
+h3.featured:before {
+    content: url('/images/star.png');
+    position: absolute;
+    left: -35px;
+    top: 8px;
+}
+
+.article {
+    margin: 10px auto;
+    width: 900px;
+    text-align: justify;
+}
+
+.vertical {
+    display: block;
+    position: absolute;
+    width: 1px;
+    overflow: visible;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    color: #aaa;
+    font-size: 12pt;
+    line-height: 16px;
+    text-align: justify;
+}
+
+.date {
+    font-style: italic;
+    color: #aaa;
+}
+
+.feature p {
+    padding-bottom: 20px;
+    color: #fff;
+}
+
+.feature a  {
+    color: #aaa;
+}
+
+.feature .permalink {
+    float: right;
+    margin-top: 10px;
+}
+
+.author {
+    color: #666;
+}
+
+.feature .author {
+    color: #ccc;
+    clear: both;
+}
+
+.feature .author a {
+    color: #ccc;
+}
+
+.subtitle {
+    color: #bbb;
+}
+
+.gist {
+    box-shadow: 0 0 2px 2px #000;
+}
+
+.gist-highlight {
+    max-height: 400px;
+}
+
+.gist-meta {
+    background-color: #ccc !important;
+    border-top: 1px solid #666;
+}
+
+h4 {
+    font-size: 18pt;
+    width: 100%;
+    border-bottom: 1px solid #666;
+}
+
+h4 a {
+    color: #000;
+    text-decoration: none;
+}
+
+h4 a:hover {
+    color: #333;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+blockquote {
+    background-color: #FFE97F;
+    border-radius: 5px;
+    border: 1px solid #CCB966;
+    padding: 20px 20px 20px 55px;
+    margin: 0;
+    width: 825px;
+    display: block;
+    position: relative;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+blockquote:before {
+    content: url('/images/pencil.png');
+    position: absolute;
+    top: 0px;
+    left: 5px;
+}
+
+img {
+    margin: 10px;
+}
+
+#site-news {
+    background: url('/images/always_grey.png') 0 0 scroll repeat;
+    height: 75px;
+    border-top: solid 1px #aaa;
+    color: #fff;
+}
+
+#site-news div {
+    margin: 0 auto;
+    width: 930px;
+    padding: 0 0 0 30px;
+    position: relative;
+}
+
+#site-news h3 {
+    color: #fff;
+}
+
+#site-news a {
+    color: #ccc;
+}
+
+#site-news p {
+    margin: 0;
+}
+
+.web-icon:before {
+    content: url('/images/web.png');
+    position: absolute;
+    left: -70px;
+}
+
+.project-icon:before {
+    content: url('/images/project.png');
+    position: absolute;
+    left: -70px;
+}
+
+.code {
+    font-family: Courier New;
+    padding: 10px;
+    display: block;
+    width: 880px;
+    border-radius: 3px;
+    border: 1px #999 solid;
+    background-color: #eee;
+}
+
+.inline-code {
+    border-radius: 3px;
+    border: 1px #999 solid;
+    background-color: #eee;
+    padding: 1px 2px 1px 2px;
+    font-family: Courier New;
+    display: inline-block;
+    margin: 1px;
+}
+
+.spoiler {
+    display: block;
+    width: 100%;
+    /*height: 24px;*/
+    background-color: #ccc;
+    border-radius: 2px;
+    border: 1px solid #777;
+    padding: 5px;
+    position: relative;
+}
+
+.spoiler p, .spoiler div {
+    /*display: none;*/
+    visibility: hidden;
+}
+
+.spoiler:before {
+    content: 'Hover to view';
+    padding-left: 30px;
+    padding-top: 3px;
+    position: absolute;
+    top: 10px;
+    background: url('/images/question.png') 0 0 no-repeat scroll transparent;
+}
+
+.spoiler:hover {
+    
+}
+
+.spoiler:hover:before {
+    display: none;
+}
+
+.spoiler:hover p, .spoiler:hover div {
+    visibility: visible;
+}
