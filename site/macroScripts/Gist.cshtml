@@ -1,0 +1,9 @@
+﻿@{
+    string gid = Parameter.GistId;
+    if (gid.EndsWith("/"))
+    {
+        gid = gid.Remove(gid.Length - 1);
+    }
+    gid = gid.Substring(gid.LastIndexOf('/') + 1);
+}
+<script src="@string.Format("http://gist.github.com/{0}.js", gid)"></script>

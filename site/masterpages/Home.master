@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderID="title" runat="server">0x10c Resources - </asp:Content>
+
+<asp:Content ContentPlaceHolderID="content" runat="server">
+    <umbraco:Macro alias="HomeFeature" runat="server" />
+    <div id="site-news">
+        <div>
+            <h3 class="<umbraco:Item field="headerClass" recursive="true" runat="server" />"><umbraco:Item field="headerText" recursive="true" runat="server" /></h3>
+            <umbraco:Item field="headerSubtext" recursive="true" runat="server" />
+        </div>
+    </div>
+    <div class="article">
+        <umbraco:Macro alias="ArticleList" runat="server" />
+        <p style="text-align: center;">Want to give us news, or become an author? Email us: <a href="mailto:articles@10c.co">articles@10c.co</a></p>
+    </div>
+</asp:Content>

@@ -1,0 +1,53 @@
+﻿@using umbraco.MacroEngines
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{ 
+    int postsPerPage = 5;
+
+    int page = 0;
+	int.TryParse(Request.QueryString["p"], out page);
+    if (page < 0)
+    {
+        page = 0;
+    }
+    var totalPages = Library.NodeById(1055).Articles.Count() / postsPerPage;
+
+    var articles = Model.AncestorOrSelf(1).Descendants("Article").Where("CreatorName=\"" + Model.Name + "\"").Where("!umbracoNaviHide").Skip(page * postsPerPage).Take(postsPerPage);
+}
+
+@foreach (var article in articles)
+{
+<div class="summary">
+    <h3 class="@(article.featured ? "featured" : "")"><a href="@article.Url">@article.Name</a></h3>
+    <p class="author">By <a href="/Authors/@article.CreatorName">@article.CreatorName</a> on @article.CreateDate.ToLongDateString()</p>
+    @{
+    string text = Library.StripHtml(article.summary).ToString().Trim();
+    if (text.Length == 0)
+    {
+        text = Library.StripHtml(article.bodyText).ToString().Trim();
+    }
+    if (text.Length > 500)
+    {
+        text = text.Remove(500) + "...";
+    }
+    }
+    <p>@text</p>
+    <p><a href="@article.Url">Read more »</a></p>
+</div>
+}
+<div id="pagination">
+@{
+    if (page == 1)
+    {
+        <a href="@Model.Url" class="left">Previous</a>
+    }
+    if (page > 1)
+    {
+        <a href="?p=@(page - 1)" class="left">Previous</a>
+    }
+    else if (page < totalPages)
+    {
+        <a href="?p=@(page + 1)" class="right">Next</a>
+    }
+}
+</div>
+<div class="clearfix"></div>
