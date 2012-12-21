@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" %>
+<!doctype html>
+<html>
+    <head>
+        <title><asp:ContentPlaceHolder ID="title" runat="server" />10c.co</title>
+        <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="/css/global.css" />
+        <asp:ContentPlaceHolder ID="head" runat="server" />
+    </head>
+    <body>
+        <div id="header">
+            <h1><a href="/">10c.co</a></h1>
+            <h2>DCPU-16 Resources and Tutorials</h2>
+            <div id="navigation">
+                <umbraco:Macro alias="Navigation" runat="server" />
+            </div>
+            <div id="search">
+                <form action="/search" method="GET">
+                    <input type="text" class="text" name="q" placeholder="Search" />
+                    <input type="submit" class="submit" />
+                </form>
+            </div>
+        </div>
+        <div id="container">
+            <div id="content">
+                <asp:ContentPlaceHolder ID="content" runat="server" />
+            </div>
+            <div id="footer">
+                <div><umbraco:Item field="footerText" recursive="true" runat="server"/></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-36017038-1']);
+          _gaq.push(['_setDomainName', '10c.co']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </body>
+</html>

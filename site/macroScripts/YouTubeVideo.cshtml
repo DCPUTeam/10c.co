@@ -1,0 +1,23 @@
+﻿@{
+    string vid = Parameter.VideoId;
+    if (!vid.StartsWith("http://") && !vid.StartsWith("https://"))
+    {
+        vid = "http://" + vid;
+    }
+    if (Uri.IsWellFormedUriString(vid, UriKind.Absolute))
+    {
+        Uri uri = new Uri(vid);
+        if (uri.Host == "youtu.be" || uri.Host == "www.youtu.be")
+        {
+            vid = uri.LocalPath.Trim('/');
+        }
+        else
+        {
+            var query = HttpUtility.ParseQueryString(uri.Query);
+            vid = query["v"];
+        }
+    }
+}
+<div>
+    <iframe class="embed" width="840" height="464" src="http://www.youtube.com/embed/@vid" frameborder="0" allowfullscreen></iframe>
+</div>

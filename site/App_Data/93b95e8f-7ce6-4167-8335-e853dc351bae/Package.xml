@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <info>
+    <package>
+      <name>Razor Components</name>
+      <version>1.1.0</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://github.com/tocsoft/Common.Helpers</url>
+      <requirements>
+        <major>4</major>
+        <minor>7</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Scott Williams</name>
+      <website>https://github.com/tocsoft/Umbraco-Razor-Components</website>
+    </author>
+    <readme><![CDATA[Umbraco-Razor-Components
+========================
+Helper extensions for razor support in Umbraco 4.x
+This Library adds 2 new features to RazorLibraryCore (`@Library.XXX()`)
+##1. RenderMacro
+RenderMacro has 2 modes;
+First can be called using
+`
+@Library.RenderMacro("MacroAlias", new { Property1 = "value", Prop2= "value2"})
+`
+this will render a named macro from the back office.
+Second can be called with a path to a razor macro script in the form
+`
+@Library.RenderMacro("~/macroScripts/scriptFile.cshtml", new { Property1 = "value", Prop2= "value2"})
+`
+this doesn't need to have been registered in the back office to work.
+##2. ImageUrl/ImageUrls
+This call can be used to retrieve a one or more crop urls form a media picker property (also supports DAMP and embedded media xml)
+`
+@Library.ImageUrl("imagePropertyAlias", "aliasOfCropPropertyOnMediaNode", "cropName")
+`
+this calls falls back to using the umbracoFile property if needs must.
+##How to use
+add `@using Tocsoft.Umbraco.RazorComponents` to the top of your razor file and you will then be able to use the helper methods.
+##Compatibility
+This is compatible with normal Umbraco Razor macros an also from within views using the UmbraMVCo library]]></readme>
+  </info>
+
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+
+  <Actions />
+
+  <control />
+
+  <files><file><guid>82ce4729-1b80-491c-85f8-2761324f03e0.dll</guid><orgPath>/bin</orgPath><orgName>Tocsoft.Common.Helpers.dll</orgName></file><file><guid>6ffdd3e0-7781-436f-b9c9-a6335fd5e070.dll</guid><orgPath>/bin</orgPath><orgName>Tocsoft.Common.Helpers.Web.dll</orgName></file><file><guid>8acb33da-74ce-4d1e-8af6-bc40fbcccf7c.dll</guid><orgPath>/bin</orgPath><orgName>Tocsoft.Umbraco.RazorComponents.dll</orgName></file><file><guid>387d82bc-74f4-45b7-b48a-be5a857fb62e.pdb</guid><orgPath>/bin</orgPath><orgName>Tocsoft.Umbraco.RazorComponents.pdb</orgName></file></files>
+
+</umbPackage>

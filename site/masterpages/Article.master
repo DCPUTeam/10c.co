@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderID="title" runat="server"><umbraco:Item field="pageName" runat="server" /> - </asp:Content>
+
+<asp:Content ContentPlaceHolderID="content" runat="server">
+    <div class="feature">
+        <div>
+            <a class="permalink" href="<umbraco:Item field="Url" runat="server" />">Permalink</a>
+            <h3><umbraco:Item field="pageName" runat="server" /></h3>
+            <div class="date">Posted <umbraco:Item field="publishdate" formatAsDate="true" runat="server" /></div>
+            <div class="author">By <a href="/author/<umbraco:Item field="creatorName" runat="server" />">
+                <umbraco:Item field="creatorName" runat="server" /></a></div>
+            <div class="sharing">
+                
+            </div>
+        </div>
+    </div>
+    <div class="article">
+        <umbraco:Item field="bodyText" runat="server" />
+        <umbraco:Macro Alias="DisqusProvider" runat="server" />
+    </div>
+</asp:Content>

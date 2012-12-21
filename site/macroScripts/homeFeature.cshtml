@@ -1,0 +1,23 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@{ 
+    int postsPerPage = 5;
+
+    int page = 0;
+	int.TryParse(Request.QueryString["p"], out page);
+    if (page < 0)
+    {
+        page = 0;
+    }
+    
+	var article = @Library.NodeById(1055).Articles.Where("featured=true").OrderBy("createdate desc").FirstOrDefault();
+}
+@if (page == 0)
+{
+<div class="feature">
+    <div>
+        <h3 class="featured"><a href="@article.Url">@article.Name</a></h3>
+        <a href="@article.Url" class="big">Read full article »</a>
+        @Html.Raw(umbraco.library.RenderMacroContent(article.summary.ToString(), article.Id))
+    </div>
+</div>
+}
